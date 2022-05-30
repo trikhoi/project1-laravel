@@ -29,8 +29,6 @@ class LoginController extends Controller
         Auth::login($account);
         $request->session()->regenerate();
         return redirect()->intended('dashboard');
-
-
     }
 
 
