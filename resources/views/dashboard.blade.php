@@ -5,10 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>Post</title>
 </head>
 <body>
-    <h1>Xin chao {{ auth()->user()->user }} </h1>
+    <h1 class="text-3xl font-bold underline">
+        Xin chao {{ auth()->user()->user }}
+    </h1>
     <form action="" method="post" id="frmPost" name="frmPost">
         @csrf
         <label>Title</label> <br>

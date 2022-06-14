@@ -12,18 +12,18 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         if (empty($request->input('userName'))) {
-            return view('login', ['message' => 'vui long dang nhap']);
+            return view('login', ['message' => 'Vui lòng đăng nhập!']);
         }
 
         //$accounts = Account::all();
         $account = User::where('user', '=', $request->input('userName'))->first();
 
         if (!$account) {
-            return view('login', ['account' => $account, 'message' => 'Tai khoan khong ton tai']);
+            return view('login', ['account' => $account, 'message' => 'Tài khoản không tồn tại!']);
         }
 
         if (!Hash::check($request->input('password'), $account->pass)) {
-            return view('login', ['account' => $account, 'message' => 'Sai mat khau']);
+            return view('login', ['account' => $account, 'message' => 'Sai mật khẩu!']);
         }
 
         Auth::login($account);

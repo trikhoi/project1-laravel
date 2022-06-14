@@ -10,8 +10,6 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
-
-
         if (empty($request->input('userName'))) {
             return view('register', ['message' => 'Vui long nhap user']);
         }
@@ -21,6 +19,8 @@ class RegisterController extends Controller
         $account = User::where('user', '=', $request->input('userName'))->first();
         if ($account) {
             $message = 'Tai khoan da ton tai';
+        } elseif (empty($request->input('password'))) {
+            $message = 'Vui long nhap password';
         } elseif (($request->input('password')) != ($request->input('repass'))) {
             $message = 'Mat khau nhap lai khong dung';
         } else {

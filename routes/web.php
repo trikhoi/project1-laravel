@@ -16,12 +16,12 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/login',[LoginController::class, 'login']);
-Route::post('/login',[LoginController::class, 'login']);
+Route::get('/',[LoginController::class, 'login']);
+Route::post('/',[LoginController::class, 'login']);
 
 Route::get('/register',[RegisterController::class, 'register']);
 Route::post('/register',[RegisterController::class, 'register']);
