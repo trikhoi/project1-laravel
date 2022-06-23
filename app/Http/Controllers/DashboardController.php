@@ -11,9 +11,7 @@ class DashboardController extends Controller
 {
     public function dashboard(Request $request)
     {
-
         $posts = Post::all();
-
         $user = User::where('user','=',auth()->user()->user)->first();
         if (empty($request->input('title'))) {
             return view('dashboard', ['message' => 'Khong duoc de trong title']);

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +28,18 @@ Route::post('/',[LoginController::class, 'login']);
 Route::get('/register',[RegisterController::class, 'register']);
 Route::post('/register',[RegisterController::class, 'register']);
 
-Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');;
-Route::post('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');;
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');
+Route::post('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');
 
+Route::get('/post',[PostController::class,'post'])->middleware('auth');
+Route::post('/post',[PostController::class,'post'])->middleware('auth');
+
+Route::get('/post/{post}',[PostViewController::class,'viewPost'])->middleware('auth');
+Route::post('/post/{post}',[PostViewController::class,'viewPost'])->middleware('auth');
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 
 

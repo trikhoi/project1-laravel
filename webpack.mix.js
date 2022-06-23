@@ -20,3 +20,10 @@ mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/app.css", "public/css", [
         require("tailwindcss"),
     ]);
+
+// mix.js([
+//     'node_modules/tinymce/tinymce.min.js',
+// ], 'public/js/tinymce.js')
+
+mix.copyDirectory('vendor/tinymce/tinymce', 'public/js/tinymce');
+mix.copyDirectory('node_modules/tinymce', 'public/js/tinymce');
