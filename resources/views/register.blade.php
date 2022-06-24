@@ -17,12 +17,13 @@
                         <input
                             class="w-full py-2 bg-gray-50 text-gray-600 px-1 outline-sky-700 rounded-lg border border-solid shadow-md mb-4"
                             type="password" id="password" name="password" placeholder="Xác nhận mật khẩu"> <br>
-                        <button
-                            class="bg-cyan-500 hover:bg-cyan-600 rounded-lg p-2 w-full text-white font-sans shadow-md"
-                            type="submit">ĐĂNG KÝ
-                        </button>
                     </div>
                 </form>
+                <button
+                    class="w-auto bg-cyan-500 hover:bg-cyan-600 rounded-lg py-2 px-12 text-white font-sans shadow-md"
+                    type="submit">ĐĂNG KÝ
+                </button>
+                <a href="/" class="underline">Đăng nhập</a>
                 <div class="bg-red-100 rounded-lg py-5 px-6 mt-3 text-base text-red-700 inline-flex items-center w-auto"
                      --}}
                      role="alert">
