@@ -25,8 +25,8 @@ use App\Http\Controllers\PostViewController;
 Route::get('/',[LoginController::class, 'login']);
 Route::post('/',[LoginController::class, 'login']);
 
-Route::get('/register',[RegisterController::class, 'register']);
-Route::post('/register',[RegisterController::class, 'register']);
+Route::get('/register',[LoginController::class, 'register']);
+Route::post('/register',[LoginController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');
 Route::post('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth');
@@ -34,8 +34,8 @@ Route::post('/dashboard',[DashboardController::class,'dashboard'])->middleware('
 Route::get('/post',[PostController::class,'post'])->middleware('auth');
 Route::post('/post',[PostController::class,'post'])->middleware('auth');
 
-Route::get('/post/{post}',[PostViewController::class,'viewPost'])->middleware('auth');
-Route::post('/post/{post}',[PostViewController::class,'viewPost'])->middleware('auth');
+Route::get('/post/{post}',[PostController::class,'viewPost'])->middleware('auth');
+Route::post('/post/{post}',[PostController::class,'viewPost'])->middleware('auth');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

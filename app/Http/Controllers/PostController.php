@@ -12,4 +12,9 @@ class PostController extends Controller
         $posts = Post::where('user_id', '=', auth()->user()->id)->get();
         return view('post', ['posts' => $posts]);
     }
+
+    public function viewPost(Post $post)
+    {
+        return view('viewpost', ['post' => $post]);
+    }
 }

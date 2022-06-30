@@ -1,24 +1,21 @@
 @extends('layout')
 @section('content')
-    <div class="container h-screen max-w-6xl mx-auto">
-        <div class="w-full h-screen bg-gray-500 p-6">
-            {{--            <div class="flex justify-end text-xl text-white font-bold underline">--}}
-            {{--                    <label>Xin chao {{ auth()->user()->user }}</label>--}}
+    <div class="container h-full max-w-6xl mx-auto">
+        <div class="w-full h-full bg-gray-500 p-6">
+            {{--            <div class="flex flex-col justify-end items-end text-xl text-white">--}}
+            {{--                <button id="user-btn"--}}
+            {{--                        class="bg-cyan-500 hover:bg-cyan-600 rounded-lg px-3 text-white font-sans drop-shadow-md">--}}
+            {{--                    Xin chao {{ auth()->user()->user }}--}}
+            {{--                </button>--}}
+            {{--                <div class="hidden flex-col bg-cyan-400 px-2 mt-1 rounded text-xl" id="dropdown">--}}
+            {{--                    <a href="/" class="px-2 hover:bg-cyan-800 rounded">Đăng xuất</a>--}}
+            {{--                </div>--}}
             {{--            </div>--}}
 
-            <div class="flex justify-end text-white">
-                <div class="dropdown inline-block relative">
-                    <button class="bg-gray-300 text-gray-700 font-semibold px-8 rounded inline-flex items-center">
-                        <span class="mr-1">{{ auth()->user()->user }}</span>
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                        </svg>
-                    </button>
-                    <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                        <li class=""><a
-                                class="rounded-lg bg-gray-200 hover:bg-gray-400 px-8 block whitespace-pre"
-                                href="/">Đăng xuất</a></li>
-                    </ul>
+            <div class="dropdown">
+                <button class="dropbtn"> {{ auth()->user()->user }} </button>
+                <div class="dropdown-content">
+                    <a href="/">Đăng xuất</a>
                 </div>
             </div>
 
@@ -75,6 +72,22 @@
                             }
                         });
                     }
+                });
+
+                window.addEventListener('DOMContentLoaded', () => {
+                    const userBtn = document.querySelector('#user-btn')
+                    const dropdown = document.querySelector('#dropdown')
+                    userBtn.addEventListener('click', () => {
+                        // if (dropdown.classList.contains('hidden')) {
+                        //     dropdow.classList.remove('hidden');
+                        //     dropdow.classList.add('flex');
+                        // } else {
+                        //     dropdow.classList.remove('flex');
+                        //     dropdow.classList.add('hidden');
+                        // }
+                        dropdown.classList.toggle('hidden');
+                        dropdown.classList.toggle('flex');
+                    });
                 });
             </script>
     @endpush
