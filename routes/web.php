@@ -37,6 +37,12 @@ Route::post('/post',[PostController::class,'post'])->middleware('auth');
 Route::get('/post/{post}',[PostController::class,'viewPost'])->middleware('auth');
 Route::post('/post/{post}',[PostController::class,'viewPost'])->middleware('auth');
 
+Route::post('/post/{post}/delete',[PostController::class,'deletePost'])->middleware('auth');
+
+Route::get('/post/{post}/edit',[PostController::class,'editPost'])->middleware('auth')->name('post.edit');
+
+Route::post('/post/{post}/update',[PostController::class,'updatePost'])->middleware('auth')->name('post.update');
+
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });

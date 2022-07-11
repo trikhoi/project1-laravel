@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
         $posts = Post::all();
         $user = User::where('user','=',auth()->user()->user)->first();
+
         if (empty($request->input('title'))) {
             return view('dashboard', ['message' => 'Khong duoc de trong title']);
         }
